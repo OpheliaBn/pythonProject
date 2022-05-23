@@ -1,0 +1,3 @@
+# Files which will do not be pushed
+
+file*.csv
