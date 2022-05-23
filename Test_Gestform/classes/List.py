@@ -13,6 +13,7 @@ class List:
     def __init__(self):
         pass
 
+    #initialize the current string into an attribute
     def set_string(self, n):
         if is_3_mult(n) and is_5_mult(n):
             self.string = "GestForm"
@@ -23,7 +24,7 @@ class List:
         else:
             self.string = str(n)
 
-
+    #initialize the list of numbers
     def init_list(self, n):
         self.n = n
         self.L = randomList(n)
@@ -32,6 +33,7 @@ class List:
         self.genreated = True
         self.init_list_string()
 
+    #initialize the list of strings results
     def init_list_string(self):
         for i in self.L:
             if is_3_mult(i) and is_5_mult(i):
@@ -44,6 +46,7 @@ class List:
                 self.L_string.append(str(i))
 
 
+    #print rectangles where the list will be shown
     def printList(self, master, point, size):
         top_left_corner_x = point[0]
         top_left_corner_y = point[1]
@@ -71,13 +74,14 @@ class List:
             top_left_corner_x += size
             bottom_right_corner_x += size
 
-
+    #move the index in direction of the end of the list and update the current string attribute
     def navigate_forward(self, master):
         if self.index+2 < self.n:
             self.index += 1
         self.printList(master, (150, 15), 100)
         self.set_string(self.L[self.index+1])
 
+    #move the index in direction of the begening of the list and update the current string attribute
     def navigate_backward(self, master):
         if self.index-2 < self.n and self.index >= 0:
             self.index -= 1
